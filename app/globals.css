@@ -2,20 +2,186 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+.search-bar {
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: 1px solid rgb(199, 199, 199);
+  padding: 0 20px;
+  background-color: #f7f7f7;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.search-bar input {
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 25px;
+  padding: 12px 20px;
+  width: 280px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #006aff;
+  box-shadow: 0 0 5px rgba(0, 106, 255, 0.5);
+}
+
+.search-bar button {
+  background-color: #006aff;
+  color: white;
+  font-size: 16px;
+  border-radius: 25px;
+  padding: 12px 20px;
+  margin-left: 15px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #0056d4;
+}
+
+main {
+  display: flex;
+  gap: 20px;
+}
+
+article {
+  width: 50vw;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 5px 15px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+article.listings {
+  padding: 20px;
+  box-shadow: rgba(60, 64, 67, 0.3) -2px 0 2px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.card-container {
+  justify-content: center;
+  overflow-y: auto;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+}
+
+.card {
+  background-color: rgb(255, 255, 255);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 300px;
+  height: 250px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 5px 15px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card .text-container {
+  padding: 15px;
+}
+
+.card h1,
+.card h2,
+.card h3,
+.card p {
+  padding: 0;
+  margin: 0;
+  color: #333;
+  font-family: "Arial", sans-serif;
+}
+
+.card h3 {
+  color: #006aff;
+}
+
+.card p {
+  font-size: 14px;
+  color: #666;
+}
+
+.card .price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #006aff;
+  margin-top: 10px;
+}
+
+.property {
+  margin: 30px auto;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 5px 15px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #fff;
+  width: 90%;
+  max-width: 1200px;
+}
+
+.image {
+  width: 100%;
+  height: 300px; /* Keeps the image size consistent */
+  object-fit: cover; /* Ensures the image covers the area without stretching */
+  border-radius: 15px 15px 0 0; /* Rounded top corners */
+}
+
+.property-images-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.property-info-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 15px;
+  justify-content: space-between;
+}
+
+.property-info-container span {
+  border: solid 1px rgb(199, 199, 199);
+  margin: 5px 0;
+  padding: 6px 15px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.property-info-container span:hover {
+  background-color: #006aff;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .search-bar input {
+    width: 100%;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  main {
+    flex-direction: column;
+  }
+
+  article {
+    width: 100%;
+  }
 }
